@@ -2,7 +2,6 @@
 from random import randrange
 from math import ceil 
 
-#random_number = randrange(50) 
 partie_en_cours = True 
 
 print("------------------------") 
@@ -18,7 +17,7 @@ while partie_en_cours:
 	mise_client = -1 
 	# Demander au client le nombre qu'il veut miser entre 0 et 49 
 	while mise_client < 0 or mise_client > 49: 
-		mise_client = input("Veuillez miser un nombre entre 0 et 49 \n")
+		mise_client = raw_input("Veuillez miser un nombre entre 0 et 49 \n")
 		# Validation 
 		try:
 			mise_client = int(mise_client) 
@@ -34,18 +33,22 @@ while partie_en_cours:
 	# $$$ mise_argent 
 	mise_argent = -1 
 	while mise_argent < 0 or mise_argent > solde: 
-		mise_argent = input("Combien d'argent voulez-vous miser? ")
+		mise_argent = raw_input("Combien d'argent voulez-vous miser? ('allin' ou $):  ")
 		
-		try: 
-			mise_argent = int(mise_argent) 
-		except ValueError: 
-			print("Entrez une mise_argent...") 
-			mise_argent = -1 
-			continue
-		if mise_argent< 0: 
-			print("Votre mise_argent ne doit pas être négative...")
-		if mise_argent> solde: 
-			print("Votre mise_argent ne doit pas dépasser votre solde! Cmon!")
+		if mise_argent == "allin": 
+			mise_argent = solde
+		else:
+		
+			try: 
+				mise_argent = int(mise_argent) 
+			except ValueError: 
+				print("Entrez une mise_argent...") 
+				mise_argent = -1 
+				continue
+			if mise_argent< 0: 
+				print("Votre mise_argent ne doit pas être négative...")
+			if mise_argent> solde: 
+				print("Votre mise_argent ne doit pas dépasser votre solde! Cmon!")
 	
 	
 	resultat = randrange(50) 
