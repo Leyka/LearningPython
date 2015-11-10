@@ -16,7 +16,7 @@ while in_process:
 	else: 
 		print(str(year) + " is not a leap year :(") 
 			
-	again = raw_input("Retry? (o/n)") 
+	again = raw_input("Retry? (y/n)") 
 	if again == "n" or again == "N": 
 		in_process = False
 		print("See you soon!")
